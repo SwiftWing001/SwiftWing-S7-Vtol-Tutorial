@@ -1,0 +1,25 @@
+site_name: SwiftWing S7 Vtol 文档
+
+site_description: SwiftWing S7 Vtol 飞行器用户手册与开发指南
+site_author: SwiftWing 团队
+
+theme:
+  name: readthedocs
+
+nav:
+  - 首页: index.md
+  - 免责声明: 0_免责声明.md
+  - 产品简介: 1_产品简介.md
+  - 物品清单: 2_物品清单.md
+  - 硬件规格: 3_硬件规格.md
+  - 电池充电: 4_电池充电.md
+  - 飞控教程: 5_飞控教程.md
+  - 准备通信链路: 6_准备通信链路.md
+  - 机载代码介绍: 7_机载代码介绍.md
+  - 起飞前地面测试: 8_起飞前地面测试.md
+  - 首次飞行: 9_首次飞行.md
+  - 绕圆功能Demo: 10_绕圆功能Demo.md
+  - 三维导航向量场功能Demo: 11_三维导航向量场功能Demo.md
+  - 多项式轨迹demo: 12_多项式轨迹demo.md
+  - 镜像备份与恢复: 13_镜像备份与恢复.md
+  - 资源下载: 14_资源下载.md
