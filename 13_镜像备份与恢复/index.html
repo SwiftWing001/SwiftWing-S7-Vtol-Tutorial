@@ -144,9 +144,11 @@
     
         <ul>
         
-            <li><a class="toctree-l4" href="#ubuntu">Ubuntu下备份教程</a></li>
+            <li><a class="toctree-l4" href="#ubuntu">Ubuntu下备份恢复教程一</a></li>
         
             <li><a class="toctree-l4" href="#ubuntu_1">Ubuntu下恢复教程</a></li>
+        
+            <li><a class="toctree-l4" href="#ubuntu_2">Ubuntu下备份恢复教程二</a></li>
         
         </ul>
     
@@ -197,33 +199,55 @@
             <div class="section">
               
                 <h1 id="_1">镜像备份</h1>
-<h2 id="ubuntu">Ubuntu下备份教程</h2>
+<div style="background-color: #ffcccc; color: red; margin: 10px 0; padding: 15px;border: 1px solid #ebccd1; border-radius: 20px ;">
+  <strong>说明：</strong><br>
+  1. Ubuntu下备份恢复教程一制作的镜像需要烧录到更大的SD卡之中（例如：使用32G的SD卡按照教程一制作的镜像可以烧录到64G或者128G的SD卡）<br>
+  2. Ubuntu下备份恢复教程二，可以同时完成镜像的备份和恢复，是一种以超级用户权限将第一个硬盘（/dev/sda）的数据完整地复制到第二个硬盘（/dev/sdb）<br>
+  3. 数据丢失风险：使用dd命令时要非常小心，因为错误的参数可能会导致数据丢失。例如，将数据写入错误的设备（如/dev/sda而不是/dev/sdb）可能会清除整个硬盘的数据。<br>
+  4. 备份建议：在执行此类操作之前，确保重要数据已备份。
+</div>
+
+<ul>
+<li>推荐使用教程二</li>
+</ul>
+<h2 id="ubuntu">Ubuntu下备份恢复教程一</h2>
 <ul>
 <li>推荐在Ubuntu系统下进行镜像备份操作</li>
-<li>需要准备如下：<ol>
+<li>需要准备如下：</li>
 <li>需要备份的镜像SD卡</li>
 <li>SD卡读卡器</li>
 <li>装有Ubuntu系统的电脑（推荐版本为大于等于18.04）且电脑剩余硬盘空间大于20G</li>
-</ol>
-</li>
 </ul>
 <h3 id="_2">操作如下</h3>
 <ol>
-<li>在Ubuntu系统下打开终端输入指令 <code>sudo parted –l</code>，回车</li>
+<li>在Ubuntu系统下打开终端输入指令 <code>sudo parted -l</code>，回车</li>
+</ol>
+<p><img alt="6" src="../image/13_镜像备份与恢复/33.png" /></p>
+<ol>
 <li>然后将SD卡插入读卡器，再将读卡器插上电脑</li>
-<li>再次使用指令 <code>sudo parted –l</code>  ，回车，查看该SD卡系统的存储情况，一般为在上一步基础上新增的部分</li>
+<li>再次使用指令 <code>sudo parted -l</code>  ，回车，查看该SD卡系统的存储情况，一般为在上一步基础上新增的部分</li>
+</ol>
+<p><img alt="6" src="../image/13_镜像备份与恢复/6.png" /></p>
+<ol>
 <li>根据SD卡的实际容量，找到对应的挂载，如挂载为 <code>/dev/sdb</code></li>
+</ol>
+<p><img alt="6" src="../image/13_镜像备份与恢复/7.png" /></p>
+<ol>
 <li>确认保存路径和镜像名字</li>
-<li>输入指令开始制作镜像<ul>
+</ol>
+<p><img alt="6" src="../image/13_镜像备份与恢复/8.png" /></p>
+<ol>
+<li>输入指令开始制作镜像</li>
 <li>其中，/dev/sdb，是SD卡挂载位置</li>
 <li>~/，是镜像保存路径</li>
 <li>raspberryPi，是镜像名字</li>
 <li>sudo dd if=/dev/sdb conv=sync,noerror bs=64K | gzip -c &gt; ~/raspberryPi.image.img.gz</li>
-<li>或sudo dd if=/dev/sdb conv=sync,noerror bs=64K | pv -s 128G | gzip -c &gt; ~/raspberryPi.image.img.gz 可以查看进度，一般来说制作镜像文件大小不超过10个G。</li>
-</ul>
-</li>
+</ol>
+<p><img alt="6" src="../image/13_镜像备份与恢复/9.png" /></p>
+<ol>
 <li>等待指令运行，当上面的指令在终端运行结束，则说明镜像制作完成，即可保存对应路径的镜像文件</li>
 </ol>
+<p><img alt="6" src="../image/13_镜像备份与恢复/10.png" /></p>
 <h2 id="ubuntu_1">Ubuntu下恢复教程</h2>
 <ul>
 <li>需要提前格式化SD卡</li>
@@ -231,20 +255,84 @@
 </ul>
 <h3 id="_3">操作如下</h3>
 <ol>
-<li>在Ubuntu系统下打开终端输入指令 <code>sudo parted –l</code>，回车</li>
+<li>在Ubuntu系统下打开终端输入指令 <code>sudo parted -l</code>，回车</li>
+</ol>
+<p><img alt="1" src="../image/13_镜像备份与恢复/1.png" /></p>
+<ol>
 <li>然后将SD卡插入读卡器，再将读卡器插上电脑</li>
-<li>再次使用指令 <code>sudo parted –l</code>  ，回车，查看该SD卡系统的存储情况，一般为在上一步基础上新增的部分</li>
+<li>再次使用指令 <code>sudo parted -l</code>  ，回车，查看该SD卡系统的存储情况，一般为在上一步基础上新增的部分</li>
+</ol>
+<p><img alt="2" src="../image/13_镜像备份与恢复/2.png" /></p>
+<ol>
 <li>根据SD卡的实际容量，找到对应的挂载，如挂载为 <code>/dev/sdb</code></li>
+</ol>
+<p><img alt="3" src="../image/13_镜像备份与恢复/3.png" /></p>
+<ol>
 <li>确认镜像文件路径和镜像名字</li>
-<li>输入指令开始恢复镜像到SD卡中<ul>
+</ol>
+<p><img alt="4" src="../image/13_镜像备份与恢复/4.png" /></p>
+<ol>
+<li>输入指令开始恢复镜像到SD卡中</li>
 <li>其中，/dev/sdb，是SD卡挂载位置</li>
 <li>~/，是镜像保存路径</li>
-<li>raspberryPi，是镜像名字</li>
-<li>sudo gzip -dc ~/raspberryPi.image.img.gz | sudo dd of=/dev/sdb</li>
-</ul>
-</li>
+<li>raspberryPi4b_ubuntu2204ros1，是镜像名字</li>
+<li>sudo gzip -dc ~/raspberryPi4b_ubuntu2204ros1.image.img.gz | sudo dd of=/dev/sdb bs=4M conv=fsync</li>
+</ol>
+<p><img alt="5" src="../image/13_镜像备份与恢复/5.png" /></p>
+<ol>
 <li>等待指令运行，当上面的指令在终端运行结束，则说明镜像恢复完成，即可弹出SD卡设备</li>
 </ol>
+<p><img alt="6" src="../image/13_镜像备份与恢复/11.png" /></p>
+<p><img alt="6" src="../image/13_镜像备份与恢复/22.png" /></p>
+<h2 id="ubuntu_2">Ubuntu下备份恢复教程二</h2>
+<ol>
+<li>以超级用户权限将第一个硬盘（/dev/sda）的数据完整地复制到第二个硬盘（/dev/sdb）。</li>
+<li>使用2MB的块大小进行复制。</li>
+<li>在复制过程中，如果遇到读取错误，继续复制并对齐块大小。</li>
+<li>可以显示复制进度信息。</li>
+<li>sudo dd if=/dev/sda of=/dev/sdb bs=2M conv=sync,noerror status=progress</li>
+</ol>
+<h3 id="_4">命令解释</h3>
+<ol>
+<li>sudo:</li>
+<li>这个前缀表示以超级用户（root）权限运行命令。因为dd命令通常涉及对设备文件的直接读写，需要管理员权限。</li>
+<li>dd:</li>
+<li>这是实际的命令，表示“data duplicator”（数据复制器），用于在文件之间进行低级别的复制和转换。</li>
+<li>if=/dev/sda:</li>
+<li>if表示输入文件（input file）。在这里，/dev/sda代表第一个物理硬盘（通常是系统的主硬盘）。这个参数指明数据将从这个设备读取。</li>
+<li>of=/dev/sdb:</li>
+<li>of表示输出文件（output file）。/dev/sdb通常代表第二个物理硬盘。这个参数指明数据将被写入到这个设备。</li>
+<li>bs=2M:</li>
+<li>bs表示块大小（block size），这里设置为2M（2 Megabytes）。这意味着在复制的过程中，dd将以2MB为单位进行读写操作。较大的块大小通常会提高复制速度。</li>
+<li>conv=sync,noerror:</li>
+<li>conv表示转换选项。</li>
+<li>sync: 在输入和输出块之间进行同步，如果输入块的大小不足2MB，dd会填充零，使输出块大小一致。</li>
+<li>noerror: 遇到错误时继续操作，尽可能完成复制，而不是中断。这在复制损坏的设备时非常有用。</li>
+<li>status=progress:这个选项用于显示进度信息。在复制过程中，会定期显示已复制的数据量，使用户能够看到操作的进度。</li>
+</ol>
+<h3 id="_5">操作如下</h3>
+<ol>
+<li>在Ubuntu系统下打开终端输入指令 <code>sudo parted -l</code>，回车</li>
+<li>然后将SD卡插入读卡器，再将读卡器插上电脑</li>
+<li>再次使用指令 <code>sudo parted -l</code>  ，回车，查看该SD卡系统的存储情况，一般为在上一步基础上新增的部分</li>
+<li>根据SD卡的实际容量，找到对应的挂载，如挂载为 <code>/dev/sdc</code>  <code>/dev/sdd</code></li>
+</ol>
+<p><img alt="6" src="../image/13_镜像备份与恢复/12.png" /></p>
+<ol>
+<li>此处需要备份或者恢复的镜像源文件在第一个接入的SD卡，即：<code>/dev/sdc</code></li>
+<li>此处用作备份保存或者恢复镜像的SD卡在第二个接入</li>
+<li>确认了源镜像SD卡和保存的SD卡后，将设备的 <code>/dev/sdc</code>和 <code>/dev/sdd</code>填入对应位置</li>
+</ol>
+<p><img alt="6" src="../image/13_镜像备份与恢复/13.png" /></p>
+<ul>
+<li>开始备份镜像或者恢复镜像</li>
+<li>sudo dd if=/dev/sdc of=/dev/sdd bs=2M conv=sync,noerror status=progress</li>
+</ul>
+<p><img alt="6" src="../image/13_镜像备份与恢复/14.png" /></p>
+<ul>
+<li>等待备份完成后，即可弹出SD卡设备</li>
+</ul>
+<p><img alt="6" src="../image/13_镜像备份与恢复/15.png" /></p>
               
             </div>
           </div>
