@@ -58,9 +58,9 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../4_%E7%94%B5%E6%B1%A0%E5%85%85%E7%94%B5/">电池充电</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../5_%E9%A3%9E%E6%8E%A7%E6%95%99%E7%A8%8B/">飞控教程</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../5_%E5%87%86%E5%A4%87%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF/">准备通信链路</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../6_%E5%87%86%E5%A4%87%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF/">准备通信链路</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../6_%E9%A3%9E%E6%8E%A7%E6%95%99%E7%A8%8B/">飞控教程</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">使用指南</span></p>
@@ -133,7 +133,23 @@
 <pre><code class="language-shell">roslaunch single_demo plane_inclinecircle_track.launch
 </code></pre>
 <p>当终端中能够获取到无人机的模式时，显示“POSCTL”时候，表示已经成功建立链接，在此之后可以切换到offboard模式控制。</p>
-<p><strong>飞手飞行流程：</strong>
+<ul>
+<li>下图方框所示为还没有获取到无人机模式的情况，需要等待一段时间，直到获取到模式后，才能切换到offboard模式。<ul>
+<li>树莓派因算力问题，需要等待一段时间，才能获取到模式；</li>
+<li>英伟达 Jetson 因算力问题，不需要等待一段时间，很快能够获取到模式。</li>
+</ul>
+</li>
+</ul>
+<p><img alt="1764057336663" src="../image/10_%E7%BB%95%E5%9C%86%E5%8A%9F%E8%83%BDDemo/1764057336663.png" /></p>
+<ul>
+<li>下图说明程序能够获取到无人机的模式，显示“POSCTL”时候，表示已经成功建立链接，在此之后调整好无人机位置和朝向后即可准备切换到offboard模式控制。</li>
+</ul>
+<p><img alt="1764057521488" src="../image/10_%E7%BB%95%E5%9C%86%E5%8A%9F%E8%83%BDDemo/1764057521488.png" /></p>
+<ul>
+<li>切换至offboard模式后，即可开始响应并执行机载程序控制。</li>
+</ul>
+<p><img alt="1764057823415" src="../image/10_%E7%BB%95%E5%9C%86%E5%8A%9F%E8%83%BDDemo/1764057823415.png" />
+<strong>飞手飞行流程：</strong>
 - 在多旋翼模式下进行解锁和垂直起飞，起飞时机头应朝向<strong>逆风方向</strong>；
 - 飞行至约 30–40 米高度后，确保前方无遮挡，机头方向开阔，准备进行模式切换；
 - 拨动飞行模式切换开关，将飞行模式由<strong>多旋翼</strong>切换为<strong>固定翼</strong>；
