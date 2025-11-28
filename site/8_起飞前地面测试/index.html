@@ -69,7 +69,9 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">起飞前地面测试</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#_2">详细检查步骤：</a>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">电机位置和坐标系说明</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_3">详细检查步骤：</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#offboard">机载offboard检测（固定翼模式）</a>
     </li>
@@ -125,7 +127,23 @@
 <li>修改遥控器相关配置；</li>
 <li>调整飞控中 actuator 相关参数。</li>
 </ul>
-<h2 id="_2"><strong>详细检查步骤：</strong></h2>
+<h2 id="_2"><strong>电机位置和坐标系说明</strong></h2>
+<ul>
+<li>PX4电机坐标系说明如下</li>
+<li>X轴正方向：指向无人机前方</li>
+<li>Y轴正方向：指向无人机右侧</li>
+</ul>
+<p><img alt="1764145447060" src="../image/8_%E8%B5%B7%E9%A3%9E%E5%89%8D%E5%9C%B0%E9%9D%A2%E6%B5%8B%E8%AF%95/1764145447060.png" /></p>
+<ul>
+<li>下图为Vtol S7的电机位置和坐标配置</li>
+<li>俯视图看Y3电机位置</li>
+<li>1号电机在左副翼，在飞控中心的(0.11,-0.25)位置，并且是顺时针旋转</li>
+<li>2号电机在右副翼，在飞控中心的(0.11,0.25)位置，并且是逆时针旋转</li>
+<li>3号电机在尾碳管，在飞控中心的(-0.34,0.0)位置，并且是逆时针旋转</li>
+</ul>
+<p><img alt="1764146164102" src="../image/8_%E8%B5%B7%E9%A3%9E%E5%89%8D%E5%9C%B0%E9%9D%A2%E6%B5%8B%E8%AF%95/1764146164102.png" /></p>
+<p><img alt="1764145375061" src="../image/8_%E8%B5%B7%E9%A3%9E%E5%89%8D%E5%9C%B0%E9%9D%A2%E6%B5%8B%E8%AF%95/1764145375061.png" /></p>
+<h2 id="_3"><strong>详细检查步骤：</strong></h2>
 <ul>
 <li>
 <p><strong>卸下螺旋桨（断电状态下操作）</strong></p>
