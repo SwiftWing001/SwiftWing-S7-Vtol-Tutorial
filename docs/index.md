@@ -31,10 +31,17 @@
 
 
 **迅翼相关主页**
-&emsp;&emsp;[知乎](https://zhihu.com/people/swiftwing): `<u>`https://zhihu.com/people/swiftwing`</u>`
-&emsp;&emsp;[CSDN](https://blog.csdn.net/2302_80148937): `<u>`https://blog.csdn.net/2302_80148937`</u>`
-&emsp;&emsp;[bilibili](https://space.bilibili.com/3493294111722309): `<u>`https://space.bilibili.com/3493294111722309`</u>`
+
+&emsp;&emsp;[知乎](https://zhihu.com/people/swiftwing): https://zhihu.com/people/swiftwing
+
+&emsp;&emsp;[CSDN](https://blog.csdn.net/2302_80148937): https://blog.csdn.net/2302_80148937
+
+&emsp;&emsp;[bilibili](https://space.bilibili.com/3493294111722309): https://space.bilibili.com/3493294111722309
+
 **&emsp;&emsp;微信公众号:**
+
 ![](./pic/wechat.jpg)
+
 **&emsp;&emsp;课程服务:**
+
 ![](./pic/course_wechat.jpg)
