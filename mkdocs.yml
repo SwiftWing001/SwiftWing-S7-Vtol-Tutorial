@@ -7,6 +7,13 @@ site_url: https://swiftwing001.github.io/SwiftWing-S7-Vtol-Tutorial/
 theme:
   name: readthedocs
 
+plugins:
+  - search
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
+
 nav:
   - 主页: index.md
   - 产品介绍:
