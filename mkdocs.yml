@@ -3,6 +3,7 @@ site_name: SwiftWing S7 Vtol 文档
 site_description: SwiftWing S7 Vtol 飞行器用户手册与开发指南
 site_author: SwiftWing 团队
 site_url: https://swiftwing001.github.io/SwiftWing-S7-Vtol-Tutorial/
+copyright: Copyright © 2026 深圳市牧空创新科技有限公司
 
 theme:
   name: readthedocs
