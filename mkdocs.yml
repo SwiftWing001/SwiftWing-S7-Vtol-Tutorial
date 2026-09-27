@@ -49,6 +49,7 @@ nav:
     - C10pro吊舱使用: 快速上手/C10pro吊舱使用.md
   - RTK基站配置:
     - RTK基站配置: 快速上手/RTK基站配置.md
+    - 网络RTK的使用: 快速上手/网络RTK的使用.md
   - 使用指南:
     - 机载代码介绍: 快速上手/机载代码介绍.md
     - 起飞前地面测试: 快速上手/起飞前地面测试.md
@@ -75,3 +76,8 @@ nav:
 # git push origin master
 # # 部署到 GitHub Pages
 # mkdocs gh-deploy
+# python -m mkdocs build
+# python -m mkdocs serve -a 0.0.0.0:8080
+# python -m mkdocs serve -a 192.168.31.42:8080
+# 192.168.31.42:8080
+# 127.0.0.1:8080
